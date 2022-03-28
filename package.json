@@ -1,0 +1,47 @@
+{
+  "name": "tfs-18f-js",
+  "version": "1.0.0",
+  "description": "TFS Frontend JS Homework",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "npm run lint:es",
+    "lint:fix": "npm run lint:es:fix",
+    "lint:es": "eslint **/*.js",
+    "lint:es:fix": "eslint --fix **/*.js",
+    "start": "live-server --port=8000 --open=/homework/makeRequest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/tfs-18f-frontend/javascript.git"
+  },
+  "author": "Dmitry Korolev <dmitry@korolev.dk> (https://korolev.dk)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/tfs-18f-frontend/javascript/issues"
+  },
+  "homepage": "https://gitlab.com/tfs-18f-frontend/javascript#README",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "7.13.10",
+    "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "24.9.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^4.3.8",
+    "jest": "24.9.0",
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "delay": "^4.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
