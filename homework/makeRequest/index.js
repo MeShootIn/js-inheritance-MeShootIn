@@ -1,5 +1,3 @@
 import { makeRequests } from './makeRequests.js';
 
-window.makeRequests = () => {
-  return makeRequests();
-}
+window.makeRequests = () => makeRequests();

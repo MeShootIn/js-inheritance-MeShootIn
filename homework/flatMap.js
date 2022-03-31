@@ -1,3 +1,11 @@
+function flatMap(callback, thisArg) {
+  return (
+    () => this
+      .map(callback, thisArg)
+      .reduce((acc, val) => acc.concat(val), [])
+  )();
+}
+
 /**
  * Напишите функцию, добавляющую полифил метода flatMap
  * к прототипу Array. Полифил должен полностью реализовывать
@@ -9,6 +17,11 @@
  * @param  {*} ArrayConstructor конструктор Array
  * @return {Array} Тот же конструктор с добавленным методом flatMap
  */
-export const flatMapPolyfill = (ArrayConstructor = Array) => {
-
-};
+export const flatMapPolyfill = (ArrayConstructor = Array) => Object.defineProperties(ArrayConstructor.prototype, {
+  flatMap: {
+    writable: true,
+    enumerable: false,
+    configurable: true,
+    value: flatMap
+  }
+});

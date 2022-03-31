@@ -10,6 +10,11 @@
  * @param  {Number}  ms время для timeout в миллисекундах
  * @return {Promise} промис с нужным поведением
  */
-export const rejectOnTimeout = (promise, ms) => {
+export const rejectOnTimeout = (promise, ms) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('timeout_error');
+  }, ms);
 
-};
+  promise
+    .then(resolve, reject);
+});

@@ -9,6 +9,14 @@
  * @class NumberAndString
  * @param {String} str - initial value
  */
-export class NumberAndString {
+export class NumberAndString extends Number {
+  constructor(str) {
+    super(str.length);
 
+    this.str = str;
+  }
+
+  toString() {
+    return this.str;
+  }
 }
