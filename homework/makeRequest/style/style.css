@@ -1,0 +1,24 @@
+@import url('header.css');
+@import url('main.css');
+@import url('footer.css');
+
+/* Глобальный border-box */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.body {
+    /* Шрифт по-умолчанию */
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: rgba(0, 0, 0, 1);
+
+    /* Для прижатия футера к низу экрана */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

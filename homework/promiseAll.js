@@ -10,7 +10,8 @@ export const promiseAll = promises => new Promise((resolve, reject) => {
 
   const results = [];
 
-  const done = () => {
+  const done = (result, i) => {
+    results[i] = result;
     count -= 1;
 
     if (count === 0) {
@@ -19,8 +20,11 @@ export const promiseAll = promises => new Promise((resolve, reject) => {
   };
 
   promises.forEach((promise, i) => {
-    Promise.resolve(promise)
-      .then(result => { results[i] = result; }, reject)
-      .then(done);
+    if (promise instanceof Promise) {
+      promise
+        .then(result => { done(result, i); }, reject);
+    } else {
+      done(promise, i);
+    }
   });
 });

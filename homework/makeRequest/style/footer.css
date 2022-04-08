@@ -1,0 +1,12 @@
+/* Подвал */
+.bottom-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.bottom-footer__text {
+    color: darkgray;
+}

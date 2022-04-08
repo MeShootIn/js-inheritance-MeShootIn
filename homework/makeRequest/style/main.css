@@ -1,0 +1,115 @@
+.main {
+    margin: auto;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 720px;
+    /* Чтобы занимал оставшееся пространство */
+    flex-grow: 1;
+}
+
+.request-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+
+    background-color: rgb(240, 240, 240);
+}
+
+.request-form__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.request-form__submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.urls-input {
+    width: 100%;
+    border: none;
+}
+
+.max-requests-input {
+    border: none;
+}
+
+.submit-button {
+    display: flex;
+    padding: 8px;
+
+    color: white;
+    font-size: larger;
+
+    background-color: rgb(255, 64, 64);
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    backface-visibility: hidden;
+    transition: background 0.25s ease;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: rgb(255, 8, 8);
+}
+
+.submit-button:disabled {
+    background-color: rgb(255, 128, 128);
+}
+
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    display: block;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] {
+    padding: 0.5em;
+}
+
+summary::before {
+    content: '\25B6';
+    padding-right: 0.5em;
+}
+
+details[open]>summary::before {
+    content: '\25BC';
+}
+
+.result__url {
+    font-size: large;
+}
+
+.result__url_wait {
+    color: gray;
+}
+
+.result__url_in-progress {
+    color: yellow;
+}
+
+.result__url_resolved {
+    color: green;
+}
+
+.result__url_rejected {
+    color: red;
+}

@@ -1,14 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Сброс стилей -->
+  <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="style/style.css">
+
+  <title>Promise limit concurrency</title>
+
   <script type="module" src="index.js"></script>
 </head>
-<body>
-  <form>
-    Arg: <input type="text" id="input" />
-    <button type="button" onclick="makeRequests()">Test</button>
-    <div id="answer"></div>
-  </form>
+
+<body class="body">
+  <noscript>JavaScript отключён или неподдерживается Вашим браузером!</noscript>
+
+  <header>
+    <nav class="top-nav">
+      <h1 class="title">Лимитные асинхронные запросы</h1>
+    </nav>
+  </header>
+
+  <main class="main">
+    <form class="request-form" autocomplete="off" onsubmit="makeRequests(); return false;">
+      <div class="request-form__section">
+        <label for="urls">Ссылки для GET-запросов:</label>
+        <input class="urls-input" type="text" id="urls" required>
+      </div>
+
+      <div class="request-form__section">
+        <label for="max-requests">Максимальное количество одновременных запросов:</label>
+        <input class="max-requests-input" type="number" id="max-requests" min="1" required>
+      </div>
+
+      <div class="request-form__submit">
+        <button class="submit-button" type="submit">Поехали!</button>
+      </div>
+    </form>
+
+    <section id="results">
+      <h2>Результаты:</h2>
+    </section>
+
+    <template id="result-template">
+      <div class="result">
+        <details open>
+          <summary class="result__url result__url_wait"></summary>
+          <p class="result__status-code"></p>
+          <details>
+            <summary>Ответ:</summary>
+            <p class="result__data"></p>
+          </details>
+        </details>
+      </div>
+    </template>
+  </main>
+
+  <footer class="bottom-footer">
+    <p class="bottom-footer__text">
+      &copy;&nbsp;2022&nbsp;MeShootIn
+    </p>
+  </footer>
 </body>
+
 </html>

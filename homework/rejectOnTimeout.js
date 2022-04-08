@@ -7,7 +7,7 @@
  * Не использовать Promise.race.
  *
  * @param  {Promise} promise исходный промис
- * @param  {Number}  ms время для timeout в миллисекундах
+ * @param  {Number}  ms время для Timeout в миллисекундах
  * @return {Promise} промис с нужным поведением
  */
 export const rejectOnTimeout = (promise, ms) => new Promise((resolve, reject) => {

@@ -1,9 +1,14 @@
-function flatMap(callback, thisArg) {
-  return (
-    () => this
-      .map(callback, thisArg)
-      .reduce((acc, val) => acc.concat(val), [])
-  )();
+/**
+ * Полифилл для `Array.prototype.flatMap`.
+ * @param callbackfn Функция, которая принимает до трех аргументов. Метод map вызывает функцию callbackfn один раз для
+ * каждого элемента массива.
+ * @param thisArg Объект, на который может ссылаться ключевое слово this в функции callbackfn. Если thisArg опущен, в
+ * качестве значения this используется undefined.
+ * @return {Array} Новый массив, каждый элемент которого является результатом выполнения функции callbackfn и "поднят"
+ * на 1 уровень.
+ */
+function flatMap(callbackfn, thisArg) {
+  return [].concat.call([], ...this.map(callbackfn, thisArg));
 }
 
 /**

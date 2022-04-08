@@ -1,0 +1,10 @@
+/* Заголовок */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.title {
+    font-size: xx-large;
+}
