@@ -1,4 +1,4 @@
-import { Request } from './src/request.js';
+import Request from './src/request.js';
 
 /**
  * Задача повышенной сложности. На неё нет тестов, и ее выполнение
@@ -37,11 +37,15 @@ import { Request } from './src/request.js';
  * @param  {number} maxRequests максимальное количество одновременных запросов
  * @return {Promise}
  */
-export const makeRequests = async(urls, maxRequests) => {
+export default async function makeRequests(urls, maxRequests) {
   const requestMap = new Map();
   const responses = [];
   const responseMap = new Map();
-  const requestPromises = new Array(maxRequests).fill(Promise.resolve());
+  const requestPromises = [];
+
+  for (let i = 0; i < maxRequests; ++i) {
+    requestPromises[i] = Promise.resolve();
+  }
 
   const setRequest = i => {
     if (!requestMap.has(urls[i])) {
@@ -91,4 +95,4 @@ export const makeRequests = async(urls, maxRequests) => {
   }
 
   return Promise.resolve(responses);
-};
+}

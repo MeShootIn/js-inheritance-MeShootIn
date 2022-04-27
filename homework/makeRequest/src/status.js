@@ -1,7 +1,7 @@
 /**
  * Всевозможные статусы запроса.
  */
-export class Status {
+export default class Status {
   static get WAIT() {
     return 'wait';
   }

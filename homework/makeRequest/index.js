@@ -1,5 +1,5 @@
-import { makeRequests } from './makeRequests.js';
-import { Result } from './src/result.js';
+import makeRequests from './makeRequests.js';
+import Result from './src/result.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const $maxRequests = document.querySelector('#max-requests');
@@ -30,7 +30,6 @@ window.makeRequests = () => {
         response
           .then(({ statusCode, data }) => {
             const $result = document.querySelectorAll('#results .result')[i];
-
             const $statusCode = $result.querySelector('.result__status-code');
 
             $statusCode.innerText = `Код: ${statusCode}`;

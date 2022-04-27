@@ -1,7 +1,7 @@
-import { Result } from './result.js';
-import { Status } from './status.js';
+import Result from './result.js';
+import Status from './status.js';
 
-export class Request {
+export default class Request {
   #url;
 
   #results = [];
@@ -16,7 +16,7 @@ export class Request {
 
   /**
    * Пополняет массив с HTML-элементами div.result, соответствующими текущему url.
-   * @param {HTMLDivElement[]} $results массив HTML-элементов div.result.
+   * @param {Node} $results массив HTML-элементов div.result.
    * @returns {Request} текущий объект (this).
    */
   addResults(...$results) {
@@ -27,7 +27,7 @@ export class Request {
 
   /**
    * Обновление статусов всех HTML-элементов div.result из массива.
-   * @param {Status} status новый статус.
+   * @param {string} status новый статус.
    */
   #setStatus(status) {
     for (const $result of this.#results) {
